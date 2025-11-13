@@ -6,7 +6,7 @@
   color: white;
   transition: all 0.3s ease;
   z-index: 50;
-  height: 90px;
+  height: 130px;
   display: flex;
   align-items: center;
 }
@@ -81,8 +81,18 @@
   font-size: 0.9rem;
   opacity: 0.8;
   transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
 }
 
 .social-link:hover {
   opacity: 1;
+}
+
+.social-link img {
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover img {
+  transform: scale(1.3);
 }

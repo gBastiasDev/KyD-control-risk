@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import Contact from './contact/Contact';
 import About from './about/About';
 import Services from './services/Services';
@@ -7,32 +10,102 @@ import { company } from '@/constants/general';
 import './home.css'
 
 export default function HomePage() {
-  return (
-    <section className="text-center space-y-6 mt-28 mx-10">
-      <div className='flex'>
-        <div>
-          <h2 className="text-4xl font-bold">{company.name}</h2>
-          <p className="text-lg text-gray-600">
-            {homeSection.subtitle}
-          </p>
-        </div>
+  const visionRef = useRef<HTMLDivElement>(null)
+  const missionRef = useRef<HTMLDivElement>(null)
+  const [visionVisible, setVisionVisible] = useState(false)
+  const [missionVisible, setMissionVisible] = useState(false)
 
-        <div>
+  useEffect(() => {
+    const visionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisionVisible(true)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    const missionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setMissionVisible(true)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (visionRef.current) {
+      visionObserver.observe(visionRef.current)
+    }
+    if (missionRef.current) {
+      missionObserver.observe(missionRef.current)
+    }
+
+    return () => {
+      if (visionRef.current) {
+        visionObserver.unobserve(visionRef.current)
+      }
+      if (missionRef.current) {
+        missionObserver.unobserve(missionRef.current)
+      }
+    }
+  }, [])
+
+  return (
+    <section className="home-section">
+      <div className="hero-container">
+        <div className="hero-content">
+          <h1 className="company-name">{company.name}</h1>
+          <p className="company-slogan">{homeSection.subtitle}</p>
           {company.description && (
-            <p className="text-gray-600 max-w-2xl mx-auto mt-4">
+            <p className="company-description">
               {company.description}
             </p>
           )}
         </div>
       </div>
-      
+
+      <div 
+        ref={visionRef}
+        className={`vision-container ${visionVisible ? 'visible' : ''}`}
+      >
+        <div className="vision-content">
+          <div className="vision-image-wrapper">
+            <img src={homeSection.visionImage} alt="Visión" className="vision-image" />
+          </div>
+          <div className="vision-text">
+            <h3 className="vision-title">Visión</h3>
+            <p className="vision-description">
+              {homeSection.vision}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div 
+        ref={missionRef}
+        className={`mission-container ${missionVisible ? 'visible' : ''}`}
+      >
+        <div className="mission-content">
+          <div className="mission-text">
+            <h3 className="mission-title">Misión</h3>
+            <p className="mission-description">
+              {homeSection.mission}
+            </p>
+          </div>
+          <div className="mission-image-wrapper">
+            <img src={homeSection.missionImage} alt="Misión" className="mission-image" />
+          </div>
+        </div>
+      </div>
       
       <About />
-
       <Services />
-
       <Contact />
-
     </section>
   );
 }

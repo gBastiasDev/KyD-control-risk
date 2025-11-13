@@ -1,23 +1,23 @@
 export const contactInfo = {
     email: {
-        data: "info@kydcontrolrisk.com",
-        logo: "/contact/email.png"
+        data: "Pab.Valdivia@gmail.com",
+        logo: "/mail.png"
     },
     phone: {
         data: "+1 (234) 567-8901",
-        logo: "/contact/phone.png"
+        logo: "/whatsapp.png"
     },
     address: {
         data: "1234 Main St, Anyown, USA",
-        logo: "/contact/address.png"
+        logo: "/location.png"
     },
     instagram: {
         data: "kydcontrolrisk",
-        logo: "/contact/instagram.png"
+        logo: "/instagram.webp"
     },
     linkedin: {
         data: "kyd-control-risk",
-        logo: "/contact/linkedin.png"
+        logo: "/linkedin.png"
     }
 }
 

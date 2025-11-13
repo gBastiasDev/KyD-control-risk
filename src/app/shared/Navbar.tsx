@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { servicesSection } from "@/constants/services";
 import { aboutSection } from "@/constants/about";
-import { contactSection } from "@/constants/contact";
+import { contactSection, contactInfo } from "@/constants/contact";
 import { homeSection } from "@/constants/home";
 import "./navbar.css";
 
@@ -55,9 +55,15 @@ export default function Navbar() {
 
         {/* Redes sociales */}
         <div className="navbar-right">
-          <Link href="#" className="social-link">FB</Link>
-          <Link href="#" className="social-link">IG</Link>
-          <Link href="#" className="social-link">TW</Link>
+          <Link href={`https://www.instagram.com/${contactInfo.instagram.data}`} target="_blank" rel="noopener noreferrer" className="social-link">
+            <img src={contactInfo.instagram.logo} alt="Instagram" className="w-6 h-6" />
+          </Link>
+          <Link href={`https://www.linkedin.com/in/${contactInfo.linkedin.data}`} target="_blank" rel="noopener noreferrer" className="social-link">
+            <img src={contactInfo.linkedin.logo} alt="LinkedIn" className="w-6 h-6" />
+          </Link>
+          <Link href={`mailto:${contactInfo.email.data}`} className="social-link">
+            <img src={contactInfo.email.logo} alt="Email" className="w-6 h-6" />
+          </Link>
         </div>
       </nav>
     </header>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { contactInfo } from "@/constants/contact";
+import { contactSection } from "@/constants/contact";
 import { aboutSection } from "@/constants/about";
 import { servicesSection } from "@/constants/services";
 import { homeSection } from "@/constants/home";
@@ -64,10 +65,11 @@ export default function Footer() {
 
         {/* Navegación Derecha */}
         <div className="footer-right">
-          <Link href="/">Inicio</Link>
-          <Link href="/about">Nosotros</Link>
-          <Link href="/services">Servicios</Link>
-          <Link href="/contact">Contacto</Link>
+          <h3>Enlaces</h3>
+          <Link href="/">{homeSection.title}</Link>
+          <Link href="/about">{aboutSection.title}</Link>
+          <Link href="/services">{servicesSection.title}</Link>
+          <Link href="/contact">{contactSection.title}</Link>
         </div>
       </div>
 

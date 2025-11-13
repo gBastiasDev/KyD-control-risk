@@ -9,7 +9,8 @@
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
@@ -18,9 +19,11 @@
 }
 
 .footer-left {
+  width: 30%;
 }
 
 .footer-logo {
+  width: 50%;
   filter: brightness(0) invert(1); /* blanco si el logo es oscuro */
   transition: transform 0.3s ease;
 }
@@ -40,6 +43,15 @@
   align-items: center;
   gap: 0.6rem;
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.contact-item img {
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover img {
+  transform: scale(1.3);
 }
 
 .contact-link {
@@ -55,7 +67,7 @@
 .footer-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-center;
   gap: 0.4rem;
 }
 

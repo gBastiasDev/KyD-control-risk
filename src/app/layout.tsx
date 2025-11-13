@@ -32,13 +32,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <video
+          className="global-background-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/Cybersecurity.mp4" type="video/mp4" />
+        </video>
 
-        <Navbar />
+        <div className="app-shell">
+          <Navbar />
 
-        {children}
+          <main>{children}</main>
 
-        <Footer />
-
+          <Footer />
+        </div>
       </body>
     </html>
   );

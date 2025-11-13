@@ -1,0 +1,7 @@
+{
+  "watch": ["src", "public", "next.config.ts", "tsconfig.json"],
+  "ext": "ts,tsx,js,jsx,json,css",
+  "ignore": ["node_modules", ".next"],
+  "exec": "next dev --turbopack"
+}
+
