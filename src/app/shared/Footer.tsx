@@ -65,7 +65,6 @@ export default function Footer() {
 
         {/* Navegación Derecha */}
         <div className="footer-right">
-          <h3>Enlaces</h3>
           <Link href="/">{homeSection.title}</Link>
           <Link href="/about">{aboutSection.title}</Link>
           <Link href="/services">{servicesSection.title}</Link>

@@ -81,15 +81,16 @@
 .carousel-title {
   font-size: 24px;
   font-weight: bold;
-  color: #1a1a1a;
+  color: #ffffff;
   margin: 0;
 }
 
 .carousel-description {
   font-size: 16px;
-  color: #666;
+  color: #ffffff;
   line-height: 1.6;
   margin: 0;
+  white-space: pre-line;
 }
 
 .carousel-arrow {
@@ -152,8 +153,8 @@
 }
 
 .carousel-dot.active {
-  background: #0000cc;
-  border-color: #0000cc;
+  background: rgb(37, 99, 235);
+  border-color: rgb(37, 99, 235);
   width: 14px;
   height: 14px;
 }

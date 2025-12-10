@@ -22,11 +22,25 @@ export default function About() {
   const hoveredRow =
     hoveredIndex !== null ? Math.floor(hoveredIndex / columns) : null
 
+  // Separar el contenido en párrafo introductorio y características
+  const contentParts = aboutSection.content.split('\n')
+  const introText = contentParts[0]
+  const features = contentParts.slice(1).filter(line => line.trim() !== '')
+  const finalText = features.pop() // "Conoce más de nuestro equipo:"
+
   return (
     <div className="about-page">
       <div className="about-hero">
         <h2>{aboutSection.title}</h2>
-        <p>{aboutSection.content}</p>
+        <div className="about-content">
+          <p className="about-intro">{introText}</p>
+          <ul className="about-features">
+            {features.map((feature, index) => (
+              <li key={index}>{feature.trim()}</li>
+            ))}
+          </ul>
+          {finalText && <p className="about-cta">{finalText}</p>}
+        </div>
       </div>
 
       <div className="team-grid">

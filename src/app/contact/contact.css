@@ -59,6 +59,7 @@
   font-family: inherit;
   transition: all 0.3s ease;
   background: #f8f9fa;
+  color: #1a1a1a;
 }
 
 .form-group input:focus,

@@ -8,10 +8,28 @@
 /* Hero Section - Company Name, Slogan and Description */
 .hero-container {
   margin: 80px 0 100px 0;
-  padding: 60px 40px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef72 100%);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 200px;
+  background-image: 
+    linear-gradient(to bottom, 
+      rgba(42, 63, 95, 0) 0%,
+      rgba(42, 63, 95, 0.3) 10%,
+      rgba(42, 63, 95, 0.8) 20%,
+      rgba(42, 63, 95, 1) 30%,
+      rgba(42, 63, 95, 1) 70%,
+      rgba(42, 63, 95, 0.8) 80%,
+      rgba(42, 63, 95, 0.3) 90%,
+      rgba(42, 63, 95, 0) 100%);
+  border-radius: 0;
 }
 
 .hero-content {
@@ -23,28 +41,27 @@
 .company-name {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #1a1a1a;
+  color: #ffffff;
   margin-bottom: 20px;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #0000cc 0%, #0066ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .company-slogan {
   font-size: 1.5rem;
-  color: #4a5568;
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 24px;
   font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .company-description {
   font-size: 1.125rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.8;
   max-width: 700px;
   margin: 0 auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Vision Section */
@@ -53,6 +70,13 @@
   opacity: 0;
   transform: translateX(-50px) translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .vision-container.visible {
@@ -64,15 +88,25 @@
   display: flex;
   align-items: center;
   gap: 60px;
-  padding: 50px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 64px 200px;
+  width: 100%;
+  background-image: 
+    linear-gradient(to bottom, 
+      rgba(42, 63, 95, 0) 0%,
+      rgba(42, 63, 95, 0.3) 10%,
+      rgba(42, 63, 95, 0.8) 20%,
+      rgba(42, 63, 95, 1) 30%,
+      rgba(42, 63, 95, 1) 70%,
+      rgba(42, 63, 95, 0.8) 80%,
+      rgba(42, 63, 95, 0.3) 90%,
+      rgba(42, 63, 95, 0) 100%);
+  border-radius: 0;
+  position: relative;
 }
 
 .vision-image-wrapper {
-  flex: 0 0 400px;
-  height: 400px;
+  flex: 0 0 200px;
+  height: 200px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -94,15 +128,17 @@
 .vision-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #ffffff;
   margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .vision-description {
   font-size: 1.125rem;
-  color: #555;
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.8;
   margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Mission Section */
@@ -111,6 +147,13 @@
   opacity: 0;
   transform: translateX(50px) translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  width: 100vw;
+  height: 70vh;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .mission-container.visible {
@@ -122,10 +165,20 @@
   display: flex;
   align-items: center;
   gap: 60px;
-  padding: 50px;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 64px 200px;
+  width: 100%;
+  background-image: 
+    linear-gradient(to bottom, 
+      rgba(42, 63, 95, 0) 0%,
+      rgba(42, 63, 95, 0.3) 10%,
+      rgba(42, 63, 95, 0.8) 20%,
+      rgba(42, 63, 95, 1) 30%,
+      rgba(42, 63, 95, 1) 70%,
+      rgba(42, 63, 95, 0.8) 80%,
+      rgba(42, 63, 95, 0.3) 90%,
+      rgba(42, 63, 95, 0) 100%);
+  border-radius: 0;
+  position: relative;
 }
 
 .mission-text {
@@ -138,20 +191,20 @@
 .mission-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #ffffff;
   margin: 0;
 }
 
 .mission-description {
   font-size: 1.125rem;
-  color: #555;
+  color: #ffffff;
   line-height: 1.8;
   margin: 0;
 }
 
 .mission-image-wrapper {
-  flex: 0 0 400px;
-  height: 400px;
+  flex: 0 0 200px;
+  height: 200px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -169,10 +222,14 @@
     font-size: 2.8rem;
   }
 
+  .hero-container {
+    padding: 64px 100px;
+  }
+
   .vision-content,
   .mission-content {
     gap: 40px;
-    padding: 40px;
+    padding: 64px 100px;
   }
 
   .vision-image-wrapper,
@@ -185,7 +242,7 @@
 @media (max-width: 768px) {
   .hero-container {
     margin: 60px 0 80px 0;
-    padding: 40px 30px;
+    padding: 64px 40px;
   }
 
   .company-name {
@@ -203,6 +260,11 @@
   .vision-container,
   .mission-container {
     margin: 80px 0;
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
   }
 
   .vision-content,
@@ -232,7 +294,7 @@
 
 @media (max-width: 480px) {
   .hero-container {
-    padding: 30px 20px;
+    padding: 64px 20px;
   }
 
   .company-name {

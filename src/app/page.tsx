@@ -55,8 +55,27 @@ export default function HomePage() {
     }
   }, [])
 
+  // Manejar el scroll a la sección cuando se carga la página con un hash
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '')
+    if (hash) {
+      // Esperar a que el DOM esté completamente cargado
+      setTimeout(() => {
+        const section = document.getElementById(hash)
+        if (section) {
+          const navbarHeight = 130
+          const offsetTop = section.offsetTop - navbarHeight
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth',
+          })
+        }
+      }, 100)
+    }
+  }, [])
+
   return (
-    <section className="home-section">
+    <section id="home" className="home-section">
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="company-name">{company.name}</h1>
@@ -103,9 +122,15 @@ export default function HomePage() {
         </div>
       </div>
       
-      <About />
-      <Services />
-      <Contact />
+      <div id="about">
+        <About />
+      </div>
+      <div id="services">
+        <Services />
+      </div>
+      <div id="contact">
+        <Contact />
+      </div>
     </section>
   );
 }

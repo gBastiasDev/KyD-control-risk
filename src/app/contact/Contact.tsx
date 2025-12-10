@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { contactInfo, contactSection } from "@/constants/contact"
+import { sendEmail } from "@/utils/mail"
 import "./contact.css"
 
 export default function Contact() {
@@ -28,23 +29,14 @@ export default function Contact() {
     setSubmitStatus('idle')
 
     try {
-      // Crear el contenido del correo
-      const subject = encodeURIComponent(`Contacto desde web - ${formData.name}`)
-      const body = encodeURIComponent(
-        `Nombre: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Teléfono: ${formData.phone}\n\n` +
-        `Mensaje:\n${formData.message}`
+      const success = await sendEmail(
+        formData.name,
+        formData.email,
+        formData.phone,
+        formData.message
       )
       
-      // Crear el enlace mailto
-      const mailtoLink = `mailto:${contactInfo.email.data}?subject=${subject}&body=${body}`
-      
-      // Abrir el cliente de correo
-      window.location.href = mailtoLink
-      
-      // Simular éxito después de un breve delay
-      setTimeout(() => {
+      if (success) {
         setSubmitStatus('success')
         setFormData({
           name: '',
@@ -52,23 +44,26 @@ export default function Contact() {
           phone: '',
           message: ''
         })
-        setIsSubmitting(false)
         
         // Limpiar el mensaje de éxito después de 5 segundos
         setTimeout(() => {
           setSubmitStatus('idle')
         }, 5000)
-      }, 500)
+      } else {
+        setSubmitStatus('error')
+      }
     } catch (error) {
+      console.error('Error sending email:', error)
       setSubmitStatus('error')
+    } finally {
       setIsSubmitting(false)
     }
   }
 
   return (
     <div className="contact-section">
-      <h3 className="contact-title text-2xl font-semibold">{contactSection.title}</h3>
-      <p className="contact-description text-gray-600 max-w-2xl mx-auto">
+      <h3 className="contact-title text-2xl font-semibold text-white">{contactSection.title}</h3>
+      <p className="contact-description text-white max-w-2xl mx-auto">
         {contactSection.description}
       </p>
 
@@ -104,13 +99,14 @@ export default function Contact() {
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="phone">Teléfono</label>
+              <label htmlFor="phone">Teléfono *</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                required
                 placeholder="+56 9 1234 5678"
               />
             </div>
@@ -151,7 +147,7 @@ export default function Contact() {
         </form>
       </div>
 
-      <h3 className="contact-subtitle text-xl font-semibold">También puedes seguirnos en nuestras redes sociales:</h3>
+      <h3 className="contact-subtitle text-xl text-white font-semibold">También puedes seguirnos en nuestras redes sociales!</h3>
       <div className="social-links-container">
         <div className="social-link-item">
           <a href={`https://www.instagram.com/${contactInfo.instagram.data}`} target="_blank" rel="noopener noreferrer">

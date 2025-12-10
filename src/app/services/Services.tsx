@@ -82,7 +82,9 @@ export default function Services() {
 
   return (
     <div className="services-container">
-      <h2 className="text-3xl font-semibold mb-4">{servicesSection.title}</h2>
+      <h2 className="text-3xl font-semibold mb-4 text-white">{servicesSection.title}</h2>
+
+      <p className="text-white w-1/2">{servicesSection.description}</p>
 
       <div className="carousel-wrapper">
         <div className="carousel-content">
